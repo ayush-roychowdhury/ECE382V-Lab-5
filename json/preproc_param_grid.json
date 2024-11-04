@@ -1,0 +1,9 @@
+{
+	"med_kernel": [3, 5, 7, 9],
+    "savgol_kernel": [3, 5, 7, 9],
+    "savgol_polyorder": [1, 2, 3],
+    "num_bins": [10, 15, 20],
+    "word_size": [3, 5, 7, 9],
+    "word_stride": [1, 3, 5, 7],
+    "vocab_size": [3, 5, 7]
+}
