@@ -46,27 +46,6 @@ def split_lists(input_list, splits):
     return sublists
 
 
-class KDEWrapper(KernelDensity):
-    def score_inputs(self, x):
-        y_hat = self.score_samples(x)
-        y_hat = np.exp(y_hat)
-        y_hat = np.nan_to_num(y_hat)
-
-        return y_hat
-        # TODO fix this
-        # return y_hat
-
-
-def classifier_scores(classifier, x):
-    if isinstance(classifier, KDEWrapper):
-        return classifier.score_inputs(x)
-
-    elif isinstance(classifier, SVC):
-        return classifier.predict_proba(x)[:, 0]
-
-    else:
-        return classifier.score_samples(x)
-
 
 def split_outliers(x, contamination=0.9):
     abs_x = np.sum(abs(x), axis=1)
